@@ -40,7 +40,6 @@ export default {
 
             if (type === 'nuevo lapiz') {
                 let data = e.data;
-
                 let lapices = data.data;
                 let plantilla = e.data.plantilla;
                 console.log(lapices)
@@ -104,6 +103,8 @@ export default {
 
         function loadFromLocalStorage() {
             let lapicesL = JSON.parse(localStorage.getItem("Lista Lápices")) || [];
+
+            console.log(lapicesL);
 
             ws.postMessage({ type: "load", data: lapicesL });
         }

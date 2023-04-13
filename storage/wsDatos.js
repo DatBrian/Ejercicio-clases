@@ -6,14 +6,15 @@ self.onmessage = (e) => {
     let type = e.data.type;
 
     if (type === "load") {
-        let lapicesL = e.data.data.map((lapiz) => new Lapiz(lapiz.color, lapiz.dimension, lapiz.marca, lapiz.borrador, lapiz.material));
-
+        let lapicesL = e.data.data;
+        console.log(lapicesL);
+        lapicesL.map((lapiz) => new Lapiz(lapiz.color, lapiz.dimension, lapiz.marca, lapiz.borrador, lapiz.material));
         let plantillaLoad = lapicesL
             .map((val, index) => `
                 <tr>
-                    <td scope="row">${val.color}</td>
+                    <td style="background-color:${val.color}" scope="row">${val.color}</td>
                     <td>${val.dimension}</td>
-                    <td>${val.getMarca()}</td>
+                    <td>${marca}</td>
                     <td>${val.borrador}</td>
                     <td>${val.material}</td>
                     <td>
@@ -26,6 +27,8 @@ self.onmessage = (e) => {
                     </td>
                 </tr>
             `).join("");
+
+        console.log(plantillaLoad)
 
         self.postMessage({ type: "load", data: plantillaLoad });
     }
@@ -53,7 +56,7 @@ self.onmessage = (e) => {
             .map(
                 (val, index) => `
                 <tr>
-                    <td scope="row">${val.color}</td>
+                    <td style="background-color:${val.color}" scope="row">${val.color}</td>
                     <td>${val.dimension}</td>
                     <td>${val.getMarca()}</td>
                     <td>${val.borrador}</td>
@@ -71,6 +74,7 @@ self.onmessage = (e) => {
             )
             .join("");
 
+        console.log(lapices)
         self.postMessage({ type: "nuevo lapiz", data: lapices, plantilla: plantilla });
     }
 }
