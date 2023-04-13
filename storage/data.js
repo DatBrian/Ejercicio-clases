@@ -15,6 +15,26 @@ export default class Lapiz {
         this.color = color;
     }
 
+    setColor(valor) {
+        this.color = valor;
+    }
+
+    setDimension(valor) {
+        this.dimension = valor;
+    }
+
+    setBorrador(valor) {
+        this.Borrador = valor;
+    }
+
+    setMaterial(valor) {
+        this.material = valor;
+    }
+
+    setMarca(valor) {
+        this.#marca = valor;
+    }
+
     getMarca() {
         return this.#marca
     }
