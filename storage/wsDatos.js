@@ -14,7 +14,7 @@ self.onmessage = (e) => {
                 <tr>
                     <td style="background-color:${val.color}" scope="row">${val.color}</td>
                     <td>${val.dimension}</td>
-                    <td>${marca}</td>
+                    <td>marca</td>
                     <td>${val.borrador}</td>
                     <td>${val.material}</td>
                     <td>
